@@ -8,18 +8,23 @@ RSpec.describe Gat do
   end
 
   before do
-    @sheet = Gat::Sheet.new
-    @sheet.init
+    @report = Gat::Report.new
+    @report.init
   end
-  it "#sheet" do
-    expect(@sheet.sheet).to be_a(Google::Apis::SheetsV4::Spreadsheet)
+  it "#spreadsheet" do
+    expect(@report.spreadsheet).to be_a(Google::Apis::SheetsV4::Spreadsheet)
   end
 
   it "#read" do
-    expect(@sheet.read).to be_a(Google::Apis::SheetsV4::BatchGetValuesResponse)
+    expect(@report.read).to be_a(Google::Apis::SheetsV4::Spreadsheet)
+  end
+
+  it "updating sheets" do
+    @report
+    # byebug
   end
 
   it "#share!" do
-    @sheet.share!
+    @report.share!
   end
 end
