@@ -7,10 +7,19 @@ RSpec.describe Gat do
     expect(Gat::VERSION).not_to be nil
   end
 
-  it "sets the spreadsheet" do
-    sheet = Gat::Sheet.new
-    out = sheet.call()
-    byebug
-    expect(out).to be_a(Google::Apis::SheetsV4::Spreadsheet)
+  before do
+    @sheet = Gat::Sheet.new
+    @sheet.init
+  end
+  it "#sheet" do
+    expect(@sheet.sheet).to be_a(Google::Apis::SheetsV4::Spreadsheet)
+  end
+
+  it "#read" do
+    expect(@sheet.read).to be_a(Google::Apis::SheetsV4::BatchGetValuesResponse)
+  end
+
+  it "#share!" do
+    @sheet.share!
   end
 end

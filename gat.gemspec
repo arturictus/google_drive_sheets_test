@@ -35,6 +35,7 @@ Gem::Specification.new do |spec|
   # spec.add_dependency "example-gem", "~> 1.0"
   spec.add_dependency "google-api-ruby-client", "~> 9001.0"
   spec.add_dependency 'google-apis-sheets_v4', '~> 0.8.0'
+  spec.add_dependency 'google-apis-drive_v3', '~> 0.5.0'
   spec.add_dependency "googleauth", "~> 1.3"
   # For more information and examples about making a new gem, check out our
   # guide at: https://bundler.io/guides/creating_gem.html
