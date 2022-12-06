@@ -10,6 +10,7 @@ RSpec.describe Gat do
   it "sets the spreadsheet" do
     sheet = Gat::Sheet.new
     out = sheet.call()
+    byebug
     expect(out).to be_a(Google::Apis::SheetsV4::Spreadsheet)
   end
 end
