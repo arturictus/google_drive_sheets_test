@@ -15,16 +15,32 @@ RSpec.describe Gat do
     expect(@report.spreadsheet).to be_a(Google::Apis::SheetsV4::Spreadsheet)
   end
 
+  it "mark_as_updating" do
+    @report.mark_as_updating
+    values = @report.inspect
+    puts values.to_json
+    expect(values[0].count).to eq(1)
+    expect(values[1].count).to eq(1)
+    expect(values[0][0]).to match("THIS")
+    expect(values[1][0]).to match("Uploading")
+  end
+
   it "#read" do
     expect(@report.read).to be_a(Google::Apis::SheetsV4::Spreadsheet)
   end
 
-  it "updating sheets" do
-    @report
-    # byebug
+  it "#inspect" do
+    @report.inspect
   end
 
-  it "#share!" do
+  it "updating sheets" do
+    @report.update([%(example test hello), [1, 2, 3]])
+    values = @report.inspect
+    expect(values[0]).to eq(%(example test hello))
+    expect(values[1]).to eq([1, 2, 3])
+  end
+
+  xit "#share!" do
     @report.share!
   end
 end
