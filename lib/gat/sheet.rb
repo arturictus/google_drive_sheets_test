@@ -3,14 +3,14 @@
 require "google/apis/sheets_v4"
 
 module Gat
-  class Sheet
-    def call()
+  class Sheet # rubocop:disable Style/Documentation
+    def call
       sheet
       append
       # Search for files in Drive (first page only)
     end
 
-    def append
+    def append # rubocop:disable Metrics/MethodLength
       # Add values to rows
       values = [
         %w[Tejaswini Pune Maharashtra India],
@@ -30,7 +30,7 @@ module Gat
       service.get_spreadsheet(sheet.spreadsheet_id)
     end
 
-    def sheet
+    def sheet # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
       # Always refresh sheet
       @sheet = if File.exist?(id_file)
                  data = File.read(id_file).split
