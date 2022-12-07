@@ -34,10 +34,17 @@ RSpec.describe Gat do # rubocop:disable Metrics/BlockLength
   end
 
   it "updating sheets" do
-    @report.update([%(example test hello), [1, 2, 3]])
-    values = @report.inspect
-    expect(values[0]).to eq(%(example test hello))
-    expect(values[1]).to eq([1, 2, 3])
+    data = [%w[example test hello], %w[1 2 3]]
+    @report.update(data)
+    values = @report.inspect(Gat::Report::REPORT_SHEET)
+    expect(values[0]).to eq(data[0])
+    expect(values[1]).to eq(data[1])
+
+    data2 = [%w[example2 test2 hello2], %w[1_ 2_ 3_]]
+    @report.update(data2)
+    values2 = @report.inspect(Gat::Report::REPORT_SHEET)
+    expect(values2[0]).to eq(data2[0])
+    expect(values2[1]).to eq(data2[1])
   end
 
   xit "#share!" do

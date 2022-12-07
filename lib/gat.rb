@@ -5,7 +5,8 @@ require "google/apis/drive_v3"
 
 module Gat
   class Error < StandardError; end
-  class Config
+
+  class Config # rubocop:disable Style/Documentation
     def sheet_service
       return @service if @service
 
@@ -36,8 +37,6 @@ module Gat
       data = File.read(id_file).split
       data[0]
     end
-
-    private
 
     def credentials
       scope = [Google::Apis::SheetsV4::AUTH_SPREADSHEETS, Google::Apis::DriveV3::AUTH_DRIVE]
