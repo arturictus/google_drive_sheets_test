@@ -97,7 +97,7 @@ module Gat
                                        value_input_option: "USER_ENTERED")
     end
 
-    def create_export_sheet(report) # rubocop:disable Metrics/AbcSize
+    def create_export_sheet(report) # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
       sheet_name = REPORT_SHEET
       return if report_sheet
 

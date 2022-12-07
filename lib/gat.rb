@@ -65,3 +65,4 @@ module Gat
 end
 require_relative "gat/version"
 require_relative "gat/report"
+require_relative "gat/report_v2"
