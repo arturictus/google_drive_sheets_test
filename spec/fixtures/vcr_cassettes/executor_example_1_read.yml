@@ -1,0 +1,428 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://www.googleapis.com/oauth2/v4/token
+    body:
+      encoding: ASCII-8BIT
+      string: grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer&assertion=eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJ0ZXN0LWRyaXZlLXNoZWV0cy1hcGlAYXJiaXRydW0tMzQwMjE3LmlhbS5nc2VydmljZWFjY291bnQuY29tIiwiYXVkIjoiaHR0cHM6Ly93d3cuZ29vZ2xlYXBpcy5jb20vb2F1dGgyL3Y0L3Rva2VuIiwiZXhwIjoxNjcwNTg3OTA0LCJpYXQiOjE2NzA1ODc3ODQsInNjb3BlIjoiaHR0cHM6Ly93d3cuZ29vZ2xlYXBpcy5jb20vYXV0aC9zcHJlYWRzaGVldHMgaHR0cHM6Ly93d3cuZ29vZ2xlYXBpcy5jb20vYXV0aC9kcml2ZSJ9.je8MuzWk2sx33AWIipEBzwCWgtx5Jx2Sl5VzZSfH0DtqPJQga_hKGj-tOv6kjqaLzftUafvWLnkoRdiidoJNjwK3pt-VoYRHEHK12TOuEEGMV7rkfy-Q2BjLHVch0tQsYx5dk9lu52AV4DjAMsU8syYdFAoh0C6DVNvw1wXImvDq9gV8aGPMYhsCwqNjyO5H17MRF8K6NCFhlMINIoV4iyE9lCqV8qlCyi1_Yff8zLZAbXR_vDdw4GveOBpYlnndfDUqkwF7o2AkDw1KYbVKqyV3x6zPtV2R5ctPvkHiCWo5tcl4vJsWN4qG_RAAgk0XvylgTJPyMO-nNwI-AupmoQ
+    headers:
+      User-Agent:
+      - Faraday v2.7.1
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Vary:
+      - Origin
+      - Referer
+      - X-Origin
+      Date:
+      - Fri, 09 Dec 2022 12:10:44 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Cache-Control:
+      - private
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443";
+        ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: '{"access_token":"ya29.c.b0Aa9VdymdiSWt3ZVcilTf3CIFid6rLNam2fg1EmxO569luHKmEPIaq1knUDgvbqpwR_zlf5wXzr3TydzSaJ2Tc3Hc7916q48xeUCnYRZkKHe0Ew_-emA1cSDcssPHIb6Nv_rbphK0wRmT2GwogU37Fo5wf4luPV2ci04Hi2G9K4B6EHFXPKbeVde_2UcPPMNUOqr64EEaq0vohPUMVjDFenwgfY2_MC8i.......................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................","expires_in":3599,"token_type":"Bearer"}'
+  recorded_at: Fri, 09 Dec 2022 12:10:44 GMT
+- request:
+    method: get
+    uri: https://sheets.googleapis.com/v4/spreadsheets/15lMV7JRt0mszjTZh2e2-uA7h7-qA3kKPt-vw6aUPGw8
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - unknown/0.0.0 google-apis-sheets_v4/0.8.0 Mac OS X/13.0.1 (gzip)
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip,deflate
+      Date:
+      - Fri, 09 Dec 2022 12:10:44 GMT
+      X-Goog-Api-Client:
+      - gl-ruby/3.1.3 gdcl/1.8.0
+      Authorization:
+      - Bearer ya29.c.b0Aa9VdymdiSWt3ZVcilTf3CIFid6rLNam2fg1EmxO569luHKmEPIaq1knUDgvbqpwR_zlf5wXzr3TydzSaJ2Tc3Hc7916q48xeUCnYRZkKHe0Ew_-emA1cSDcssPHIb6Nv_rbphK0wRmT2GwogU37Fo5wf4luPV2ci04Hi2G9K4B6EHFXPKbeVde_2UcPPMNUOqr64EEaq0vohPUMVjDFenwgfY2_MC8i.......................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Vary:
+      - Origin
+      - Referer
+      - X-Origin
+      Content-Encoding:
+      - gzip
+      Date:
+      - Fri, 09 Dec 2022 12:10:45 GMT
+      Server:
+      - ESF
+      Cache-Control:
+      - private
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443";
+        ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "spreadsheetId": "15lMV7JRt0mszjTZh2e2-uA7h7-qA3kKPt-vw6aUPGw8",
+          "properties": {
+            "title": "Untitled spreadsheet",
+            "locale": "en_US",
+            "autoRecalc": "ON_CHANGE",
+            "timeZone": "Etc/GMT",
+            "defaultFormat": {
+              "backgroundColor": {
+                "red": 1,
+                "green": 1,
+                "blue": 1
+              },
+              "padding": {
+                "top": 2,
+                "right": 3,
+                "bottom": 2,
+                "left": 3
+              },
+              "verticalAlignment": "BOTTOM",
+              "wrapStrategy": "OVERFLOW_CELL",
+              "textFormat": {
+                "foregroundColor": {},
+                "fontFamily": "arial,sans,sans-serif",
+                "fontSize": 10,
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "foregroundColorStyle": {
+                  "rgbColor": {}
+                }
+              },
+              "backgroundColorStyle": {
+                "rgbColor": {
+                  "red": 1,
+                  "green": 1,
+                  "blue": 1
+                }
+              }
+            },
+            "spreadsheetTheme": {
+              "primaryFontFamily": "Arial",
+              "themeColors": [
+                {
+                  "colorType": "TEXT",
+                  "color": {
+                    "rgbColor": {}
+                  }
+                },
+                {
+                  "colorType": "BACKGROUND",
+                  "color": {
+                    "rgbColor": {
+                      "red": 1,
+                      "green": 1,
+                      "blue": 1
+                    }
+                  }
+                },
+                {
+                  "colorType": "ACCENT1",
+                  "color": {
+                    "rgbColor": {
+                      "red": 0.25882354,
+                      "green": 0.52156866,
+                      "blue": 0.95686275
+                    }
+                  }
+                },
+                {
+                  "colorType": "ACCENT2",
+                  "color": {
+                    "rgbColor": {
+                      "red": 0.91764706,
+                      "green": 0.2627451,
+                      "blue": 0.20784314
+                    }
+                  }
+                },
+                {
+                  "colorType": "ACCENT3",
+                  "color": {
+                    "rgbColor": {
+                      "red": 0.9843137,
+                      "green": 0.7372549,
+                      "blue": 0.015686275
+                    }
+                  }
+                },
+                {
+                  "colorType": "ACCENT4",
+                  "color": {
+                    "rgbColor": {
+                      "red": 0.20392157,
+                      "green": 0.65882355,
+                      "blue": 0.3254902
+                    }
+                  }
+                },
+                {
+                  "colorType": "ACCENT5",
+                  "color": {
+                    "rgbColor": {
+                      "red": 1,
+                      "green": 0.42745098,
+                      "blue": 0.003921569
+                    }
+                  }
+                },
+                {
+                  "colorType": "ACCENT6",
+                  "color": {
+                    "rgbColor": {
+                      "red": 0.27450982,
+                      "green": 0.7411765,
+                      "blue": 0.7764706
+                    }
+                  }
+                },
+                {
+                  "colorType": "LINK",
+                  "color": {
+                    "rgbColor": {
+                      "red": 0.06666667,
+                      "green": 0.33333334,
+                      "blue": 0.8
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "sheets": [
+            {
+              "properties": {
+                "sheetId": 0,
+                "title": "Sheet1",
+                "index": 0,
+                "sheetType": "GRID",
+                "gridProperties": {
+                  "rowCount": 1000,
+                  "columnCount": 26
+                }
+              }
+            },
+            {
+              "properties": {
+                "sheetId": 144069098,
+                "title": "status",
+                "index": 1,
+                "sheetType": "GRID",
+                "gridProperties": {
+                  "rowCount": 1000,
+                  "columnCount": 1
+                }
+              }
+            },
+            {
+              "properties": {
+                "sheetId": 1590439418,
+                "title": "System export",
+                "index": 2,
+                "sheetType": "GRID",
+                "gridProperties": {
+                  "rowCount": 1000,
+                  "columnCount": 5
+                }
+              }
+            }
+          ],
+          "spreadsheetUrl": "https://docs.google.com/spreadsheets/d/15lMV7JRt0mszjTZh2e2-uA7h7-qA3kKPt-vw6aUPGw8/edit"
+        }
+  recorded_at: Fri, 09 Dec 2022 12:10:45 GMT
+- request:
+    method: get
+    uri: https://sheets.googleapis.com/v4/spreadsheets/15lMV7JRt0mszjTZh2e2-uA7h7-qA3kKPt-vw6aUPGw8/values:batchGet?ranges=System%20export!A1:D6
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - unknown/0.0.0 google-apis-sheets_v4/0.8.0 Mac OS X/13.0.1 (gzip)
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip,deflate
+      Date:
+      - Fri, 09 Dec 2022 12:10:45 GMT
+      X-Goog-Api-Client:
+      - gl-ruby/3.1.3 gdcl/1.8.0
+      Authorization:
+      - Bearer ya29.c.b0Aa9VdymdiSWt3ZVcilTf3CIFid6rLNam2fg1EmxO569luHKmEPIaq1knUDgvbqpwR_zlf5wXzr3TydzSaJ2Tc3Hc7916q48xeUCnYRZkKHe0Ew_-emA1cSDcssPHIb6Nv_rbphK0wRmT2GwogU37Fo5wf4luPV2ci04Hi2G9K4B6EHFXPKbeVde_2UcPPMNUOqr64EEaq0vohPUMVjDFenwgfY2_MC8i.......................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Vary:
+      - Origin
+      - Referer
+      - X-Origin
+      Content-Encoding:
+      - gzip
+      Date:
+      - Fri, 09 Dec 2022 12:10:45 GMT
+      Server:
+      - ESF
+      Cache-Control:
+      - private
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443";
+        ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "spreadsheetId": "15lMV7JRt0mszjTZh2e2-uA7h7-qA3kKPt-vw6aUPGw8",
+          "valueRanges": [
+            {
+              "range": "'System export'!A1:D6",
+              "majorDimension": "ROWS",
+              "values": [
+                [
+                  "hello",
+                  "this",
+                  "is",
+                  "a"
+                ],
+                [
+                  "hello",
+                  "this",
+                  "is",
+                  "a"
+                ]
+              ]
+            }
+          ]
+        }
+  recorded_at: Fri, 09 Dec 2022 12:10:45 GMT
+- request:
+    method: get
+    uri: https://sheets.googleapis.com/v4/spreadsheets/15lMV7JRt0mszjTZh2e2-uA7h7-qA3kKPt-vw6aUPGw8/values:batchGet?ranges=Status!A1:D6
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - unknown/0.0.0 google-apis-sheets_v4/0.8.0 Mac OS X/13.0.1 (gzip)
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip,deflate
+      Date:
+      - Fri, 09 Dec 2022 12:10:45 GMT
+      X-Goog-Api-Client:
+      - gl-ruby/3.1.3 gdcl/1.8.0
+      Authorization:
+      - Bearer ya29.c.b0Aa9VdymdiSWt3ZVcilTf3CIFid6rLNam2fg1EmxO569luHKmEPIaq1knUDgvbqpwR_zlf5wXzr3TydzSaJ2Tc3Hc7916q48xeUCnYRZkKHe0Ew_-emA1cSDcssPHIb6Nv_rbphK0wRmT2GwogU37Fo5wf4luPV2ci04Hi2G9K4B6EHFXPKbeVde_2UcPPMNUOqr64EEaq0vohPUMVjDFenwgfY2_MC8i.......................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Vary:
+      - Origin
+      - Referer
+      - X-Origin
+      Content-Encoding:
+      - gzip
+      Date:
+      - Fri, 09 Dec 2022 12:10:45 GMT
+      Server:
+      - ESF
+      Cache-Control:
+      - private
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443";
+        ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "spreadsheetId": "15lMV7JRt0mszjTZh2e2-uA7h7-qA3kKPt-vw6aUPGw8",
+          "valueRanges": [
+            {
+              "range": "status!A1:A6",
+              "majorDimension": "ROWS",
+              "values": [
+                [
+                  "THIS SPREADSHEET IS AUTOMATICALLY GENERATED BY THE SELMA SYSTEM. DO NOT MANUALLY EDIT THIS SPREADSHEET."
+                ],
+                [
+                  "Data uploaded successfully on 2022-12-09 11:08:01 +0000"
+                ]
+              ]
+            }
+          ]
+        }
+  recorded_at: Fri, 09 Dec 2022 12:10:45 GMT
+recorded_with: VCR 6.1.0

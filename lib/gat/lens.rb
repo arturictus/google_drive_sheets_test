@@ -4,7 +4,7 @@ module Gat
 
     def initialize
       config = Config.new
-      @service = config.service
+      @service = config.sheet_service
       @spreadsheet_id = config.spreadsheet_id
     end
 
@@ -14,13 +14,14 @@ module Gat
 
       # puts ">>>>>>>>>> response: #{result.inspect}"
 
-      result.sheets.each do |s|
-        puts s.properties.sheet_id
-        puts s.properties.index
-        puts s.properties.title
-        puts s.properties.grid_properties.column_count
+      result.sheets.reduce([]) do |acc, s|
+        acc.push({
+                   sheet_id: s.properties.sheet_id,
+                   index: s.properties.index,
+                   title: s.properties.title,
+                   column_count: s.properties.grid_properties.column_count
+                 })
       end
-      result
     end
 
     def read(sheet = nil)
