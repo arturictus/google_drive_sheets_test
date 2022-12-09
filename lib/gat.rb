@@ -61,6 +61,6 @@ module Gat
 end
 require_relative "gat/version"
 require_relative "gat/setup"
-require_relative "gat/google_spread_sheet"
+require_relative "gat/writer"
 require_relative "gat/lens"
 require_relative "gat/executor"

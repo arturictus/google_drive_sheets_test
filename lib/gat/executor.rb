@@ -7,7 +7,7 @@ module Gat
 
     def initialize(service, spreadsheet_id)
       @spreadsheet_id = spreadsheet_id
-      @spreadsheet = GoogleSpreadSheet.new(service, spreadsheet_id)
+      @spreadsheet = Writer.new(service, spreadsheet_id)
     end
 
     def upload_to_google_sheets(report)

@@ -1,5 +1,5 @@
 module Gat
-  class GoogleSpreadSheet
+  class Writer
     attr_reader :service, :spreadsheet_id
 
     def initialize(service, spreadsheet_id)
