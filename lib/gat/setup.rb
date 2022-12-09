@@ -2,13 +2,15 @@
 
 module Gat
   class Setup # rubocop:disable Style/Documentation, Metrics/ClassLength
+    attr_reader :service, :spreadsheet_id
 
-    def self.call
-      new.tap(&:setup)
+    def self.call(service, spreadsheet_id)
+      new(service, spreadsheet_id).tap(&:setup)
     end
 
-    def initialize
-      @config = Config.new
+    def initialize(service, spreadsheet_id)
+      @service = service
+      @spreadsheet_id = spreadsheet_id
     end
 
     def setup
@@ -36,7 +38,7 @@ module Gat
       service.get_spreadsheet(spreadsheet.spreadsheet_id)
     end
 
-    def share! # rubocop:disable Metrics/MethodLength
+    def share!(email) # rubocop:disable Metrics/MethodLength
       # File id can be obtained when we create / read speard sheer or you can just copy it from your google accout if you wish to share existing speradsheet
       return unless spreadsheet_id
       return unless shared_with
@@ -52,7 +54,7 @@ module Gat
         user_permission = {
           type: "user",
           role: "writer",
-          email_address: shared_with
+          email_address: email
         }
 
         drive.create_permission(file_id,
@@ -98,24 +100,8 @@ module Gat
       "'#{title}'!A1:Z#{sheet.properties.grid_properties.row_count}"
     end
 
-    def service
-      @config.sheet_service
-    end
-
     def drive
       @config.drive
-    end
-
-    def spreadsheet_id
-      @config.spreadsheet_id
-    end
-
-    def id_file
-      @config.id_file
-    end
-
-    def shared_with
-      @config.shared_with
     end
   end
 end

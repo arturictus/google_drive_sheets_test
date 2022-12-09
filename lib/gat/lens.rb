@@ -2,10 +2,9 @@ module Gat
   class Lens
     attr_reader :service, :spreadsheet_id
 
-    def initialize
-      config = Config.new
-      @service = config.sheet_service
-      @spreadsheet_id = config.spreadsheet_id
+    def initialize(service, spreadsheet_id)
+      @service = service
+      @spreadsheet_id = spreadsheet_id
     end
 
     def inspect # rubocop:disable Metrics/AbcSize

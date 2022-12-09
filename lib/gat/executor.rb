@@ -5,10 +5,9 @@ module Gat
     REPORT_SHEET_NAME = "System export"
     attr_reader :spreadsheet, :spreadsheet_id
 
-    def initialize
-      config = Config.new
-      @spreadsheet_id = config.spreadsheet_id
-      @spreadsheet = GoogleSpreadSheet.new(config.sheet_service, config.spreadsheet_id)
+    def initialize(service, spreadsheet_id)
+      @spreadsheet_id = spreadsheet_id
+      @spreadsheet = GoogleSpreadSheet.new(service, spreadsheet_id)
     end
 
     def upload_to_google_sheets(report)
