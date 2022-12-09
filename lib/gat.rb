@@ -8,20 +8,16 @@ module Gat
 
   class Config # rubocop:disable Style/Documentation
     def sheet_service
-      return @service if @service
-
-      @service = Google::Apis::SheetsV4::SheetsService.new
-      @service.authorization = credentials
-      @service
+      @sheet_service ||= Google::Apis::SheetsV4::SheetsService.new.tap do |s|
+        s.authorization = credentials
+      end
     end
 
     def drive
-      return @drive if @drive
-
       # Initialize the drive service
-      @drive = Google::Apis::DriveV3::DriveService.new
-      @drive.authorization = credentials
-      @drive
+      @drive ||= Google::Apis::DriveV3::DriveService.new.tap do |d|
+        d.authorization = credentials
+      end
     end
 
     def spreadsheet_id
@@ -64,5 +60,6 @@ module Gat
   end
 end
 require_relative "gat/version"
-require_relative "gat/report"
-require_relative "gat/report_v2"
+require_relative "gat/setup"
+require_relative "gat/google_spread_sheet"
+require_relative "gat/executor"
