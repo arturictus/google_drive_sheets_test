@@ -95,6 +95,10 @@ module Gat
 
     private
 
+    def id_file
+      Gat::Config.new.id_file
+    end
+
     def full_range(sheet)
       title = sheet.properties.title
       "'#{title}'!A1:Z#{sheet.properties.grid_properties.row_count}"
