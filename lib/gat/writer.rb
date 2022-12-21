@@ -1,25 +1,34 @@
 module Gat
   class Writer
-    attr_reader :service, :spreadsheet_id
+    CHUNK_SIZE = 500
+    attr_reader :service, :spreadsheet_id, :batches
 
     def initialize(service, spreadsheet_id)
       @service = service
       @spreadsheet_id = spreadsheet_id
+      @batches = []
     end
 
     def write_to(tab_name, data)
       ensure_tab_exists(tab_name, data)
-
       tab = find_tab(tab_name)
-      range = full_range(tab)
 
-      service.clear_values(spreadsheet_id, range)
-      service.update_spreadsheet_value(spreadsheet_id, range,
-                                       { major_dimension: "ROWS", values: data },
-                                       value_input_option: "USER_ENTERED")
+      service.clear_values(spreadsheet_id, full_range(tab))
+      write_in_chunks_to(tab, data)
     end
 
     private
+
+    def write_in_chunks_to(tab, data)
+      data.each_slice(CHUNK_SIZE).reduce(1) do |init_col, chunk|
+        chunk_range = "'#{tab.properties.title}'!A#{init_col}:Z#{init_col + chunk.size - 1}"
+        batches << {chunk:, range: chunk_range}
+        service.update_spreadsheet_value(spreadsheet_id, chunk_range,
+          {major_dimension: "ROWS", values: chunk},
+          value_input_option: "USER_ENTERED")
+        init_col + chunk.size
+      end
+    end
 
     def spreadsheet
       # Always refresh sheet
@@ -55,8 +64,13 @@ module Gat
       spreadsheet.sheets.find { |s| s.properties.title == tab_name }
     end
 
-    def full_range(sheet)
-      "'#{sheet.properties.title}'!A1:Z#{sheet.properties.grid_properties.row_count}"
+    def _chunked_range(tab, init_col, last_col)
+      "'#{tab.properties.title}'!A#{init_col}:Z#{last_col}"
+    end
+
+    def full_range(tab, rows = nil)
+      rows ||= tab.properties.grid_properties.row_count
+      "'#{tab.properties.title}'!A1:Z#{rows}"
     end
   end
 end

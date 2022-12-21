@@ -29,7 +29,7 @@ module Gat
       ]
 
       # Add rows to spreadsheet
-      range_name = ["A1:D1"]
+      range_name = ["A1:Z4000"]
       values_range = Google::Apis::SheetsV4::ValueRange.new(values: values)
       service.append_spreadsheet_value(spreadsheet.spreadsheet_id,
                                        range_name,

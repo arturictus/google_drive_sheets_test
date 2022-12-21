@@ -21,3 +21,15 @@ RSpec.configure do |config|
     c.syntax = :expect
   end
 end
+
+def gen_big_csv(num)
+  data = []
+  (1...num).each do |r|
+    col = []
+    10.times do |c|
+      col << "#{r}.#{c}"
+    end
+    data << col
+  end
+  data
+end
