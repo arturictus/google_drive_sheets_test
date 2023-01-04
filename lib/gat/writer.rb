@@ -36,14 +36,32 @@ module Gat
     end
 
     def ensure_tab_exists(tab_name, data)
-      return if find_tab(tab_name)
+      if tab = find_tab(tab_name)
+        current_row_length = tab.properties.grid_properties.row_count
+        return if current_row_length >= data.count
+        dimension_request = Google::Apis::SheetsV4::InsertDimensionRequest.new(
+          range: Google::Apis::SheetsV4::DimensionRange.new(sheet_id: tab.properties.sheet_id,
+          dimension: 'ROWS',
+          start_index: current_row_length,
+          end_index: data.count),
+          inherit_from_before: true
+        )
 
-      column_count = data[0].count
 
-      batch_update_spreadsheet_request = build_create_tab_request(tab_name, column_count)
+        batch_update_spreadsheet_request = Google::Apis::SheetsV4::BatchUpdateSpreadsheetRequest.new
+        batch_update_spreadsheet_request.requests = [insert_dimension: dimension_request]
 
-      service.batch_update_spreadsheet(spreadsheet_id,
-                                       batch_update_spreadsheet_request)
+
+        # Insert the new rows at the end of the spreadsheet
+        service.batch_update_spreadsheet(spreadsheet_id, batch_update_spreadsheet_request)
+      else
+        column_count = data[0].count
+
+        batch_update_spreadsheet_request = build_create_tab_request(tab_name, column_count)
+
+        service.batch_update_spreadsheet(spreadsheet_id,
+                                        batch_update_spreadsheet_request)
+      end
     end
 
     def build_create_tab_request(tab_name, column_count) # rubocop:disable Metrics/MethodLength
