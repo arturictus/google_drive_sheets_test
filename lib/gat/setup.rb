@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Gat
-  class Setup # rubocop:disable Style/Documentation, Metrics/ClassLength
+  class Setup # rubocop:disable Style/Documentation
     attr_reader :service, :spreadsheet_id
 
     def self.call(service, spreadsheet_id)

@@ -7,7 +7,7 @@ module Gat
       @spreadsheet_id = spreadsheet_id
     end
 
-    def inspect # rubocop:disable Metrics/AbcSize
+    def inspect
       # we will be using same service object created during speradsheet creation
       result = service.get_spreadsheet(spreadsheet_id)
 

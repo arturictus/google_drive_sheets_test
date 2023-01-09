@@ -50,7 +50,7 @@ module Gat
       service.batch_update_spreadsheet(spreadsheet_id, request)
     end
 
-    def create_tab(tab_name, column_count:, row_count:) # rubocop:disable Metrics/AbcSize
+    def create_tab(tab_name, column_count:, row_count:)
       request = Google::Apis::SheetsV4::BatchUpdateSpreadsheetRequest.new.tap do |batch|
         add_sheet_request = Google::Apis::SheetsV4::AddSheetRequest.new.tap do |rq|
           rq.properties = Google::Apis::SheetsV4::SheetProperties.new.tap do |properties|
